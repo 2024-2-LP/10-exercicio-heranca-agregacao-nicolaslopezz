@@ -56,9 +56,14 @@ public class Consultoria {
     }
 
     public Integer qtdDesenvolvedoresMobile() {
-        return (int) desenvolvedores.stream()
-                .filter(d -> d instanceof DesenvolvedorMobile)
-                .count();
+        int count = 0;
+
+        for (Desenvolvedor dev : desenvolvedores) {
+            if (dev instanceof DesenvolvedorMobile) {
+                count++;
+            }
+        }
+        return count;
     }
     public List<Desenvolvedor> buscarPorSalarioMaiorIgualQue(Double salario) {
         List<Desenvolvedor> resultado = new ArrayList<>();
